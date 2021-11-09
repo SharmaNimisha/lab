@@ -1,6 +1,5 @@
 provider "google" {
         project = "confident-slice-328813"
-        credentials = "keys.json"
         region = "us-central1"
 }
 resource "google_compute_instance" "myvm" {
