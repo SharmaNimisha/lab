@@ -14,7 +14,7 @@ variable "project" {
 
 resource "google_compute_instance" "myvm" {
         name = "myfirstvm"
-        machine_type = machine
+        machine_type = var.machine
         zone = "us-central1-a"
         network_interface {
                 network = "default"
@@ -28,7 +28,7 @@ resource "google_compute_instance" "myvm" {
 
 resource "google_compute_instance" "myvm1" {
         name = "secondfirstvm"
-        machine_type = machine
+        machine_type = var. machine
         zone = "us-central1-a"
         network_interface {
                 network = "default"
