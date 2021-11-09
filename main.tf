@@ -50,3 +50,6 @@ resource "google_compute_instance" "myvm2" {
         boot_disk {
                 initialize_params {
                         image = "rhel-cloud/rhel-7"
+	}
+	}
+}
