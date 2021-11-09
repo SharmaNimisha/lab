@@ -15,3 +15,17 @@ resource "google_compute_instance" "myvm" {
         }
         }
 }
+
+resource "google_compute_instance" "myvm" {
+        name = "secondfirstvm"
+        machine_type = "f1-micro"
+        zone = "us-central1-a"
+        network_interface {
+                network = "default"
+        }
+        boot_disk {
+                initialize_params {
+                        image = "rhel-cloud/rhel-7"
+        }
+        }
+}
