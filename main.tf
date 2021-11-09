@@ -2,9 +2,15 @@ provider "google" {
         project = "confident-slice-328813"
         region = "us-central1"
 }
+
+variable "machine" {
+	type = string
+	default = "f1-micro"
+}
+
 resource "google_compute_instance" "myvm" {
         name = "myfirstvm"
-        machine_type = "f1-micro"
+        machine_type = "machine"
         zone = "us-central1-a"
         network_interface {
                 network = "default"
@@ -16,9 +22,9 @@ resource "google_compute_instance" "myvm" {
         }
 }
 
-resource "google_compute_instance" "myvm" {
+resource "google_compute_instance" "myvm1" {
         name = "secondfirstvm"
-        machine_type = "f1-micro"
+        machine_type = "machine"
         zone = "us-central1-a"
         network_interface {
                 network = "default"
