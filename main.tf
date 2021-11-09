@@ -39,3 +39,14 @@ resource "google_compute_instance" "myvm1" {
         }
         }
 }
+
+resource "google_compute_instance" "myvm2" {
+        name = "thirdvm"
+        machine_type = var. machine
+        zone = "us-central1-a"
+        network_interface {
+                network = "default"
+        }
+        boot_disk {
+                initialize_params {
+                        image = "rhel-cloud/rhel-7"
