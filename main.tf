@@ -1,6 +1,6 @@
 provider "google" {
         project = var.project
-        region = "us-central1"
+        region = var.region
 }
 
 variable "machine" {
@@ -12,10 +12,19 @@ variable "project" {
 	type = string
 }
 
+variable "zone" {
+	type = string
+}
+
+varibale "region" {
+	type = string
+}
+
+
 resource "google_compute_instance" "myvm" {
         name = "myfirstvm"
         machine_type = var.machine
-        zone = "us-central1-a"
+        zone = var.zone
         network_interface {
                 network = "default"
         }
@@ -29,7 +38,7 @@ resource "google_compute_instance" "myvm" {
 resource "google_compute_instance" "myvm1" {
         name = "secondfirstvm"
         machine_type = var. machine
-        zone = "us-central1-a"
+        zone = var.zone
         network_interface {
                 network = "default"
         }
