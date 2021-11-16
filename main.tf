@@ -3,11 +3,27 @@ provider "google" {
         region = "us-central1"
 }
 
-variable "project" {
+variable "machine" {
         type = string
+        default = "f1-micro"
 }
 
-resource "aws_iam_user" "example" {
-  count = 3
-  name  = "neo.${count.index}"
+variable "name" {
+        type = string
+		default = dbsre
+}
+
+resource "google_compute_instance" "myvm" {
+		count = 3 
+        name = var.name.${count.index}"
+        machine_type = var.machine
+        zone = "us-central1-a"
+        network_interface {
+                network = "default"
+        }
+        boot_disk {
+                initialize_params {
+                        image = "debian-cloud/debian-10"
+        }
+        }
 }
