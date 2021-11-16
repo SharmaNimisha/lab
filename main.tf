@@ -19,7 +19,7 @@ variable "name" {
 
 resource "google_compute_instance" "myvm" {
 	count = 3 
-        name = var.name.${count.index}"
+        name = var.name.${count.index}
         machine_type = var.machine
         zone = "us-central1-a"
         network_interface {
