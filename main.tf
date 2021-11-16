@@ -20,14 +20,14 @@ variable "region" {
 	type = string
 }
 
-variable "var1" {
+variable "names" {
 	type = string
         default = "dbsresup"
 }
 
 resource "google_compute_instance" "myvm" {
         count = 3
-        name = var.var1.${count.index}
+        name = var.names.${count.index}
         machine_type = var.machine
         zone = var.zone
         network_interface {
