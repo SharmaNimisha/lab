@@ -14,7 +14,7 @@ variable "machine" {
 
 variable "name" {
         type = string
-	default = dbsre
+	default = "dbsre"
 }
 
 resource "google_compute_instance" "myvm" {
@@ -27,7 +27,7 @@ resource "google_compute_instance" "myvm" {
         }
         boot_disk {
                 initialize_params {
-                        image = "debian-cloud/debian-10"
+                image = "debian-cloud/debian-10"
         }
         }
 }
