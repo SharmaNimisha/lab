@@ -3,6 +3,10 @@ provider "google" {
         region = "us-central1"
 }
 
+variable "project" {
+	type = string
+}
+
 variable "machine" {
         type = string
         default = "f1-micro"
@@ -10,11 +14,11 @@ variable "machine" {
 
 variable "name" {
         type = string
-		default = dbsre
+	default = dbsre
 }
 
 resource "google_compute_instance" "myvm" {
-		count = 3 
+	count = 3 
         name = var.name.${count.index}"
         machine_type = var.machine
         zone = "us-central1-a"
