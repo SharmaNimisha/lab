@@ -20,9 +20,14 @@ variable "region" {
 	type = string
 }
 
+variable "var1" {
+	type =  type = string
+        default = "dbsresup"
+}
 
 resource "google_compute_instance" "myvm" {
-        name = "myfirstvm"
+        count = 3
+        name = var.name.${count.index}
         machine_type = var.machine
         zone = var.zone
         network_interface {
@@ -31,20 +36,6 @@ resource "google_compute_instance" "myvm" {
         boot_disk {
                 initialize_params {
                         image = "debian-cloud/debian-10"
-        }
-        }
-}
-
-resource "google_compute_instance" "myvm1" {
-        name = "secondfirstvm"
-        machine_type = var. machine
-        zone = var.zone
-        network_interface {
-                network = "default"
-        }
-        boot_disk {
-                initialize_params {
-                        image = "rhel-cloud/rhel-7"
         }
         }
 }
