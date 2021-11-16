@@ -20,8 +20,8 @@ variable "region" {
 	type = string
 }
 
-variable "var1" {
-	type =  type = string
+variable "name" {
+	type = string
         default = "dbsresup"
 }
 
