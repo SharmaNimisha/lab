@@ -18,7 +18,7 @@ variable "a1" {
 
 resource "google_compute_instance" "myvm" {
 	count = 10
-        name = "${var.a1}${count.index}"
+        name = "db.${count.index}"
         machine_type = var.machine
         zone = "us-central1-a"
         network_interface {
