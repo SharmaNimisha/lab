@@ -18,7 +18,7 @@ variable "a1" {
 
 resource "google_compute_instance" "myvm" {
 	count = 5
-        name = "${format("${var.a1}%03d", count.index + 1)}"
+        name = "${format("${var.a1}%01d", count.index + 1)}"
         machine_type = var.machine
         zone = "us-central1-a"
         network_interface {
