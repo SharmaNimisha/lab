@@ -12,9 +12,13 @@ variable "machine" {
         default = "f1-micro"
 }
 
+variable "name" {
+	type = string
+}
+
 resource "google_compute_instance" "myvm" {
 	count = 10
-        name = "vm.${count.index}"
+        name = var.name.${count.index}
         machine_type = var.machine
         zone = "us-central1-a"
         network_interface {
